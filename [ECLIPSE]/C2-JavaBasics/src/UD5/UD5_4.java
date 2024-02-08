@@ -19,7 +19,7 @@ public class UD5_4 {
 		double area = PI * Math.pow(radio, 2);
 		
 		//Mostrar el resultado
-		System.out.println("El área del circulo con radio " + radio + "es: " + area);
+		System.out.println("El área del circulo con radio " + radio + " saes: " + area);
 
 	}
 

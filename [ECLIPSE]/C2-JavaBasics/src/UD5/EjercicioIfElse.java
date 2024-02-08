@@ -1,19 +1,47 @@
 package UD5;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 public class EjercicioIfElse {
 
 	public static void main(String[] args) {
 
-		int hora = 20;
-
-		if (hora >=6 && hora <=12) {
-			System.out.println("Buenos dias");
-		} else if (hora > 12 && hora < 20) {
-			System.out.println("Buenas tardes");
-		} else {
-			System.out.println("Buenas noches");
+		Date fechaActual = new Date();
+		SimpleDateFormat formatoHora = new SimpleDateFormat("H");
+		int hora = Integer.parseInt(formatoHora.format(fechaActual));
+		System.out.println(fechaActual);
+		String saludo;
+		
+		switch (hora) {
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+			saludo = "Buenas noches";
+			break;
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+		case 10:
+		case 11:
+			saludo= "Buenos días";
+			break;
+		case 12:
+		case 13:
+		case 14:
+		case 15:
+		case 16:
+		case 17:
+			saludo = "Buenas tardes";
+			
+			break;
+		default:
+			saludo= "Buenas noches";		
+		
 		}
-
+		System.out.println(saludo);
 	}
 
 }
