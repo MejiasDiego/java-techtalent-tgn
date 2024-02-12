@@ -1,7 +1,7 @@
 package UD5;
 import java.util.Scanner;
 
-public class UD5_4 {
+public class UD5_04 {
 
 	public static void main(String[] args) {
 		// Declarar la constante PI

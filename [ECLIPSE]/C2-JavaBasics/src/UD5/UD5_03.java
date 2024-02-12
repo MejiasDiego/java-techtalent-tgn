@@ -1,7 +1,7 @@
 package UD5;
 import javax.swing.JOptionPane;
 
-public class UD5_3 {
+public class UD5_03 {
 
 	public static void main(String[] args) {
 

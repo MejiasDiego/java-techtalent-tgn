@@ -2,7 +2,7 @@ package UD5;
 
 import javax.swing.JOptionPane;
 
-public class UD5_6 {
+public class UD5_06 {
 
 	public static void main(String[] args) {
 		// Lee un número por teclado que pida el precio de un producto (puede tener

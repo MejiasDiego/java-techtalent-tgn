@@ -1,7 +1,7 @@
 package UD5;
 import java.util.Scanner;
 
-public class UD5_5 {
+public class UD5_05 {
     public static void main(String[] args) {
         // Crear un objeto Scanner para leer la entrada del usuario
         Scanner scanner = new Scanner(System.in);
