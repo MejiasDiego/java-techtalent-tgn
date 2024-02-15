@@ -1,4 +1,4 @@
-package ComentarioLinea;
+package EjerciciosEstudiar;
 
 public class ComentarioLinea {
 
