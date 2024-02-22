@@ -5,16 +5,17 @@ public class T04_2App {
 	public static void main(String[] args) {
 		int n = 10;
 		double a = 2.5;
-		char c = 'C';
+		char c = 'b';
 
-		System.out.println("El valor de n");
-		System.out.println("El valor de a");
-		System.out.println("El valor de C");
+		System.out.println("El valor de n = " + n);
+		System.out.println("El valor de a = " + a);
+		System.out.println("El valor de C = " + c);
 
 		double suma = n + a;
-		System.out.println("El resultado de la suma es " + (n + a));
-		System.out.println("El resultado de la resta es " + (n - a));
-		System.out.println("Valor numérico de C: " + (int) c);
+		System.out.println("El resultado de n+a es " + (n + a));
+		System.out.println("El resultado de n-a es " + (n - a));
+		System.out.println("Valor numérico de C: " + c);
+        System.out.println("Valor numérico del carácter " + c + " = " + (int) c);
 
 	}
 }
