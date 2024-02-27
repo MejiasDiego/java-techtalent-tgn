@@ -44,7 +44,7 @@ public class T6_007 {
 		
 		}
 		double cantidadConvertida= tasaCambio*cantidadEuros;
-		System.out.println(cantidadEuros+"€ " + "equivalen a " + cantidadConvertida + "" + monedaNombre);
+		System.out.println(cantidadEuros+"€ " + "equivalen a " + cantidadConvertida + " " + monedaNombre);
 	
 	
 	}

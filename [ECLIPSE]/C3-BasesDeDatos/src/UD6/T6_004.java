@@ -10,7 +10,7 @@ public class T6_004 {
 		String numero = JOptionPane.showInputDialog("Introcue un número para saber su factorial");
 		int num = Integer.parseInt(numero);
 
-		JOptionPane.showMessageDialog(null, "El factorial de " + num + "es: " + factorial(num));
+		JOptionPane.showMessageDialog(null, "El factorial de " + num + " es: " + factorial(num));
 
 	}
 
