@@ -12,7 +12,7 @@ public class T6_007 {
 
 		double cantidadEuros = scanner.nextDouble();
 
-		System.out.println("Ingresa la divisa a la que deseas convertir (libras, dolares o yenes");
+		System.out.println("Ingresa la divisa a la que deseas convertir (libras, dolares o yenes) ");
 		String monedaDestino = scanner.next();
 
 		convertirMoneda(cantidadEuros, monedaDestino);

@@ -25,7 +25,7 @@ public static void main(String[] args) {
         		System.out.print(array9[i]+"}");
 			}
         }
-        // SUmar todos los valores del array
+        // Sumar todos los valores del array
         for (int i = 0; i < array9.length; i++) {
         	sumarTotal+= array9[i];
         }
