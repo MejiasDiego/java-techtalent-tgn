@@ -6,6 +6,11 @@ public class CalculoIva {
 	int PrecioProducto = 30;
 	final double IVA = 0.21;
 	
-	System.out.println("Información de producto\n El precio del producto es " +PrecioProducto + "\nEl precio del producto incluyendo el IVA, es "+(PrecioProducto+(PrecioProducto*IVA)));
+	System.out.println("Información de "
+			+ "producto\n El precio del producto es " +PrecioProducto + "\nEl precio del "
+					+ "producto incluyendo el IVA, es "+(PrecioProducto+(PrecioProducto*IVA)));
+	
+	
+	
 	}
 }
