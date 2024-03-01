@@ -20,19 +20,22 @@ public class T7_002 {
 		System.out.println(carrito);
 		System.out.println("Precio total con IVA: " + totalConIVA(carrito) + "€");
 		System.out.println("IVA aplicado: 21%");
-		
-		
-		double cartera=Double.parseDouble(JOptionPane.showInputDialog("Introduce con cuanto dinero pagará: "));
-		if (cartera<totalConIVA(carrito)) {;
-		System.out.println("No tienes dinero para pagar la compra");
-		}else if(cartera>=totalConIVA(carrito)) {
-		double cambio=0;
-		cambio=totalConIVA(carrito)-cartera;
-		System.out.println("Recibes" + cambio + "€ de cambio");
-			
+
+		JOptionPane.showMessageDialog(null, "El importe total son " + totalConIVA(carrito) + "€");
+		double cartera = Double.parseDouble(JOptionPane.showInputDialog("Introduce " + "con cuanto dinero pagará: "));
+		if (cartera < totalConIVA(carrito)) {
+			;
+			System.out.println("No tienes dinero para pagar la compra");
+		} else if (cartera >= totalConIVA(carrito)) {
+			double cambio = 0;
+			cambio = cartera - totalConIVA(carrito);
+			cambio = Math.round(cambio * 100.0) / 100.0;
+			JOptionPane.showMessageDialog(null, "Recibes " + cambio + "€ de "
+					+ "cambio");
+			System.out.println("Recibes" + cambio + "€ de cambio");
+
 		}
-		};
-	
+	};
 
 	private static void añadirCarrito(HashMap<String, Double> mapa) {
 		// Añadir producto y precio con el JOptionPane
