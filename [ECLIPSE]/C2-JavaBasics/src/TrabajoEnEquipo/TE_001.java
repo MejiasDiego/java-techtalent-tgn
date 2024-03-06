@@ -1,6 +1,5 @@
 package TrabajoEnEquipo;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TE_001 {
@@ -37,7 +36,6 @@ public class TE_001 {
 			HashMap<String, Integer> grupo2, HashMap<String, Integer> grupo3, HashMap<String, Integer> grupo4,
 			HashMap<String, Integer> grupo5) {
 
-		// HAY QUE CAMBIARLO POR UN DO-WHILE(booleano)
 		for (String i : listaAlumnos.keySet()) {
 			int grupo = generarRandom();
 			boolean interruptor = false;
