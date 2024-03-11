@@ -35,6 +35,11 @@ public class HashComplexPruebas {
 		System.out.println("INDEXOF");
 		System.out.println(listaAsistencia.indexOf("Diego"));
 
+		// Metodo Clear, elimina todos los elementos
+		listaAsistencia.clear();
+		System.out.println("CLEAR");
+		System.out.println(listaAsistencia.toString());
+
 		// Metodo Iterator, util para recorrer un arrayList
 
 		System.out.println("ITERATOR");
@@ -44,9 +49,6 @@ public class HashComplexPruebas {
 			nombre = it.hasNext();
 //			System.out.println(nombre);
 		}
-		//Metodo Clear, elimina todos los elementos
-		listaAsistencia.clear();
-		System.out.println("CLEAR");
-		System.out.println(listaAsistencia.toString());
+
 	}
 }
