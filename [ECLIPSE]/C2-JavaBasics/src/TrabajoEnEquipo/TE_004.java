@@ -8,7 +8,6 @@ import java.util.Scanner;
   
 	- Manel Nin	- Toni Galera	- Diego Mejías
 	
-	
 */
 
 
