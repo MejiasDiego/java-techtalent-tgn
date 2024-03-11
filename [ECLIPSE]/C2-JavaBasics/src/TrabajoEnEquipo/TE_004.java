@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /*
-  				PROGRAMA REALIZADO POR
+  		     PROGRAMA REALIZADO POR
   
-	- Manel Nin		- Toni Galera	- Diego Mejías
+	- Manel Nin	- Toni Galera	- Diego Mejías
 	
 	
 */
