@@ -14,7 +14,6 @@ import java.util.Scanner;
 public class TE_004 {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
 
 		HashMap<String, HashMap> baseDeDatos = new HashMap<String, HashMap>();
 		HashMap<String, HashMap> carrito = new HashMap<String, HashMap>();
@@ -22,7 +21,6 @@ public class TE_004 {
 		rellenarbaseDeDatos(baseDeDatos);
 		mostrarMenu(baseDeDatos, carrito);
 
-		sc.close();
 	}
 
 	// Menús de Gestión
