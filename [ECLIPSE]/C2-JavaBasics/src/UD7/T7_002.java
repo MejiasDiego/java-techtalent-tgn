@@ -6,7 +6,6 @@ import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 public class T7_002 {
-// FALTA ACABAR EL SISTEMA DE PAGAR Y EL DE DEVOLVER EL CAMBIO
 	public static void main(String[] args) {
 		HashMap<String, Double> carrito = new HashMap<>();
 
@@ -22,7 +21,8 @@ public class T7_002 {
 		System.out.println("IVA aplicado: 21%");
 
 		JOptionPane.showMessageDialog(null, "El importe total son " + totalConIVA(carrito) + "€");
-		double cartera = Double.parseDouble(JOptionPane.showInputDialog("Introduce " + "con cuanto dinero pagará: "));
+		double cartera = Double.parseDouble(JOptionPane.showInputDialog("Introduce " + 
+		"con cuanto dinero pagará: "));
 		if (cartera < totalConIVA(carrito)) {
 			;
 			System.out.println("No tienes dinero para pagar la compra");
@@ -41,7 +41,8 @@ public class T7_002 {
 		// Añadir producto y precio con el JOptionPane
 		String producto = JOptionPane.showInputDialog("Introduce el nombre del producto:");
 		producto = producto.toUpperCase();
-		double precioProducto = Double.parseDouble(JOptionPane.showInputDialog("Introduce el precio del producto"));
+		double precioProducto = Double.parseDouble(JOptionPane.showInputDialog("Introduce "
+			+ "el precio del producto"));
 		System.out.println("Producto: " + producto + ", Precio sin IVA: " + precioProducto + "€");
 		/*
 		 * Añadir IVA al precio de los productos final double IVA = 0.21;

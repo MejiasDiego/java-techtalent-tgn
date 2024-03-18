@@ -36,11 +36,13 @@ public class T7_001 {
 		String nombre = JOptionPane.showInputDialog("Introduce el nombre del alumno:");
 
 		int cantidadNotas = Integer
-				.parseInt(JOptionPane.showInputDialog("Introduce la cantidad de notas para el alumno " + nombre + ":"));
+				.parseInt(JOptionPane.showInputDialog("Introduce la cantidad de"
+						+ " notas para el alumno " + nombre + ":"));
 
 		double sumaNotas = 0;
 		for (int i = 0; i < cantidadNotas; i++) {
-			double nota = Double.parseDouble(JOptionPane.showInputDialog("Introduce la nota " + (i + 1) + ":"));
+			double nota = Double.parseDouble(JOptionPane.showInputDialog(""
+					+ "Introduce la nota " + (i + 1) + ":"));
 			sumaNotas += nota;
 
 		}

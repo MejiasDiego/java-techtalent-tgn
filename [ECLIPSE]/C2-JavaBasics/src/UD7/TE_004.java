@@ -1,4 +1,4 @@
-package TrabajoEnEquipo;
+package UD7;
 
 import java.util.HashMap;
 import java.util.Scanner;
