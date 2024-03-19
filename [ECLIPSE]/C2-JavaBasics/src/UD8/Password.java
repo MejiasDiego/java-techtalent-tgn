@@ -10,7 +10,7 @@ public class Password {
 	private String contraseña;
 
 	public Password() {
-		this.longitud = 0;
+		this.longitud = 8;
 		this.contraseña = "";
 		generarPass();
 	}
@@ -22,18 +22,18 @@ public class Password {
 
 	// Método para generar contraseña aleatoria
 	private void generarPass() {
-		Random random = new Random();
-		StringBuilder sb = new StringBuilder();
+		Random aleatorio = new Random();
+		StringBuilder cadena = new StringBuilder();
 
 		// Caracteres que se pueden incluir en la contraseña
 		String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
 		for (int i = 0; i < longitud; i++) {
-			int index = random.nextInt(caracteres.length());
-			sb.append(caracteres.charAt(index));
+			int indice = aleatorio.nextInt(caracteres.length());
+			cadena.append(caracteres.charAt(indice));
 		}
 
-		contraseña = sb.toString();
+		contraseña = cadena.toString();
 
 	}
 
@@ -44,11 +44,20 @@ public class Password {
 	}
 
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Ingrese la longitud de la contraseña: ");
-		int longitud = scanner.nextInt();
-		 Password password1 = new Password(longitud);
-	        System.out.println("Contraseña generada: " + password1.getContraseña());
+		 Scanner scanner = new Scanner(System.in);
+
+	        System.out.print("Ingrese la longitud de la contraseña (o Enter para contraseña por defecto): ");
+	        String entrada = scanner.nextLine();
+
+	        int longitud;
+	        if (entrada.isEmpty()) {
+	            longitud = 8; // Longitud por defecto de 8 si no se proporciona ninguna longitud
+	        } else {
+	            longitud = Integer.parseInt(entrada);
+	        }
+
+	        Password password = new Password(longitud);
+	        System.out.println("Contraseña generada: " + password.getContraseña());
 	}
 
 }
