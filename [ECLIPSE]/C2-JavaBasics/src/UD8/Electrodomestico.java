@@ -29,7 +29,7 @@ public class Electrodomestico {
 	public Electrodomestico(String color, double precio, char consumo, double peso) {
 		this.precio = precio;
 
-		if (!color.equalsIgnoreCase("azul") 
+		if 		  (!color.equalsIgnoreCase("azul") 
 				&& !color.equalsIgnoreCase("rojo") 
 				&& !color.equalsIgnoreCase("blanco")
 				&& !color.equalsIgnoreCase("negro") 
