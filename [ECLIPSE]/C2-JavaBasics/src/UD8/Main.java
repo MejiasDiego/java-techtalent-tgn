@@ -1,5 +1,5 @@
 package UD8;
-public class MainPersonaPrueba {
+public class Main {
 
 	public static void main(String[] args) {
 		// Crear objetos de la clase Persona
@@ -23,8 +23,8 @@ public class MainPersonaPrueba {
         electrodomestico2.imprimirElectrodomestico();
         
         // Crear objetos de la clase Serie
-        Serie serie1 = new Serie ("Frieren","Fantasía","Mangaka",1);
-        Serie serie2 = new Serie ("Persona 5 Royale","JRPG","Anime",50);
+        Serie serie1 = new Serie ("Frieren","Madhouse","Fantasía",1);
+        Serie serie2 = new Serie ("Persona 5 Royale","Atlus","JRPG",50);
 
         // Imprimir información de los electrodomesticos
         System.out.println("\nInformación de la serie:");

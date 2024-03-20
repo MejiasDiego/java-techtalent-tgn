@@ -49,8 +49,8 @@ public class Electrodomestico {
 
 	
 	public void imprimirElectrodomestico() {
-		System.out.println("Electrodomestico [" + "\nprecio: " + this.precio + "\ncolor: " + this.color + "\nconsumo: " 
-				+ this.consumo + "\npeso: " + this.peso +"]"); 
+		System.out.println("Electrodomestico " + "\nprecio: " + this.precio + "\ncolor: " + this.color + "\nconsumo: " 
+				+ this.consumo + "\npeso: " + this.peso +""); 
 
 	}
 

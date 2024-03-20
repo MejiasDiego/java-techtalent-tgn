@@ -63,7 +63,7 @@ public class Serie {
 	}
 	
 	public void imprimirSerie() {
-		System.out.println("Serie [" + "\nTítulo: " + this.titulo + "\ntemporadas: " + this.temporadas + "\ngenero: " 
-				+ this.genero + "\ncreador: " + this.creador +"]"); 
+		System.out.println("Serie " + "\nTítulo: " + this.titulo + "\ntemporadas: " + this.temporadas + "\ngenero: " 
+				+ this.genero + "\ncreador: " + this.creador +""); 
 }
 }
