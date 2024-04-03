@@ -39,7 +39,8 @@ public class Electrodomestico {
 			this.color = color;
 
 		}
-		if (consumo < 'A' || 'F' < consumo) {
+		//consumo = a o a f
+		if (consumo < 'A' || consumo > 'F') {
 			this.consumo = LETRA_CONSUMO;
 		} else {
 			this.consumo = consumo;

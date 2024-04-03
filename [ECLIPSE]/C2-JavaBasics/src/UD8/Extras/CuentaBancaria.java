@@ -3,8 +3,8 @@ package UD8.Extras;
 import java.util.Scanner;
 
 public class CuentaBancaria {
-	public String numeroCuenta = "123456789";
-	public double saldo = 0;
+	private String numeroCuenta = "123456789";
+	private double saldo = 0;
 
 	public CuentaBancaria(String numeroCuenta, double saldo) {
 		this.numeroCuenta = "123456789";
