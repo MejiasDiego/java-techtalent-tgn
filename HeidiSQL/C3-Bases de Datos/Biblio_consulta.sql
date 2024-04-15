@@ -14,7 +14,7 @@ CREATE TABLE tema (
     PRIMARY KEY (clavetema));
 
 CREATE TABLE autor (
-    claveautor INT NOT NULL,
+    claveautor INT NOT NULL,meteoestacion
     nombre VARCHAR(60),
     PRIMARY KEY (claveautor));
 
