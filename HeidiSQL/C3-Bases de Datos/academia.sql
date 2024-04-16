@@ -31,7 +31,7 @@ CREATE TABLE Profesores (
 );
 
 -- Restricción: No es posible dar de alta un alumno si no se matricula en un curso
-CREATE TABLE Alumnos_Cursos (
+CREATE TABLE Alumnos_almacenesdirectoresdirectoresdirectoresCursos (
     codigo_alumno INT,
     codigo_curso INT,
     PRIMARY KEY (codigo_alumno, codigo_curso),
