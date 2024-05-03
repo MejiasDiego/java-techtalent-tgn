@@ -60,7 +60,8 @@ INSERT INTO departamentos (codigo, nombre, presupuesto) VALUES
 (14, 'Diseñadores', 150000),
 (37, 'Cocineros', 150000),
 (77, 'Calidad', 150000);
--- 2.2 -- ??¿¿
+
+-- 2.2 -- 
 
 SELECT Apellidos FROM empleados;
 -- 2.3 --
@@ -121,52 +122,3 @@ WHERE presupuesto >
 	(SELECT AVG(presupuesto)
 	FROM departamentos);
 
--- 2.14 Obtener los nombres (únicamente los nombres) de los departamentos que tienen más de dos empleados. (Como en mi caso no hay ningún departamento con más de un empleado, generaré 5 empleados extra) 
-INSERT INTO empleados
-VALUES 
-('11223344', 'Mario', 'Santos', 1),
-('22334455', 'Luigi', 'Peña', 2),
-('33445566', 'Torneko', 'Taloon', 3),
-('44556677', 'Alena', 'Arevna', 4),
-('55667788', 'Ann', 'Takamaki', 5);
-
-SELECT d.nombre
-FROM empleados em, departamentos d
-WHERE em.departamento = d.codigo 
-GROUP BY em.departamento
-HAVING COUNT(em.dni) >= 2
-
--- 2.15 Añadir un nuevo departamento: ‘Calidad’, con presupuesto de 40.000€ y código 11. Añadir un empleado vinculado al departamento recién creado: Esther Vázquez, DNI: 89267109
-INSERT INTO departamentos (nombre, presupuesto)
-VALUES ('Calidad2', 40000)
-
-INSERT INTO empleados 
-VALUES ('28593847', 'John', 'Cena', 33)
-
--- 2.16 Aplicar un recorte presupuestario del 10% a todos los departamentos.
-UPDATE departamentos
-SET presupuesto = presupuesto * 0.9
-
--- 2.17 Reasignar a los empleados del departamento de investigación al departamento de informática.(Como yo no tengo departamento de informática los reasignaré al de desarrollo)
-UPDATE empleados
-SET departamento = 4
-WHERE departamento = 9
-
--- 2.18 Despedira todos los empleados que trabajan para el departamento de informática (Desarrollo) (Yo no los voy a borrar)
-DELETE
-FROM empleados
-WHERE departamento = 4
-
--- 2.19 Despedir a todos los empleados que trabajen para departamentos cuyo presupuesto sea superior a los 60.000€ (18.000€ en mi caso)
-DELETE
-FROM empleados e
-WHERE e.departamento = 
-(
-	SELECT d.codigo
-	FROM departamentos d
-	WHERE d.codigo = e.departamento AND d.presupuesto >= 18000
-)
-
--- 2.20 Despedir a todos los empleados
-DELETE
-FROM empleados 
