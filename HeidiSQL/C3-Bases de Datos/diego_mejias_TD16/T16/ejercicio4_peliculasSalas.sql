@@ -95,8 +95,6 @@ UPDATE peliculas
 SET calificacion_edad = 13
 WHERE calificacion_edad IS NULL 
 
--- 4.10 Eliminar todas las salas que proyectan películas recomendadas para todos los públicos. (Yo voy a hacer un select para no eliminar salas y como no tengo peliculas para todos los públicos voy a seleccionar las películas recomendadas para los 6 años).
-SELECT s.*
+-- 4.10 Eliminar todas las salas que proyectan películas recomendadas para todos los públicos.
 FROM salas s, peliculas p
 WHERE s.pelicula = p.codigo AND p.calificacion_edad = 6
-tiendainformatica
