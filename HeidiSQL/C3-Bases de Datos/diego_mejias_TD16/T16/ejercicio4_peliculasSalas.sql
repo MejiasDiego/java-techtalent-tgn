@@ -67,34 +67,15 @@ FROM salas
 WHERE pelicula IS NULL
 
 -- 4.5 Mostrar la información de todas las salas y, si se proyecta alguna película en la sala, mostrar también la información de la película.
-SELECT s.*, p.*
-FROM salas s
-LEFT OUTER JOIN peliculas p ON p.codigo = s.pelicula
 
 -- 4.6 Mostrar la información de todas las películas y, si se proyecta en alguna sala, mostrar también la información de la sala.
-SELECT p.*, s.*
-FROM peliculas p LEFT OUTER JOIN salas s 
-ON p.codigo = s.pelicula
 
 -- 4.7 Mostrar los nombres de las películas que no se proyectan en ninguna sala.
-SELECT p.nombre, p.codigo
-FROM peliculas p 
-WHERE NOT EXISTS 
-(
-	SELECT DISTINCT s.pelicula
-	FROM salas s
-	WHERE s.pelicula = p.codigo
-)
 
 -- 4.8 Añadir una nueva película ‘Uno, Dos, Tres’, para mayores de 7 años.
 INSERT INTO peliculas (nombre, calificacion_edad)
 VALUES ('Uno, Dos, Tres', 7)
 
 -- 4.9 Hacer constar que todas las películas no calificadas han sido calificadas ‘no recomendables para menores de 13 años’.
-UPDATE peliculas
-SET calificacion_edad = 13
-WHERE calificacion_edad IS NULL 
 
 -- 4.10 Eliminar todas las salas que proyectan películas recomendadas para todos los públicos.
-FROM salas s, peliculas p
-WHERE s.pelicula = p.codigo AND p.calificacion_edad = 6
