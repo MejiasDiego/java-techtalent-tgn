@@ -1,4 +1,8 @@
-// Para crear las bases de datos he usado el comando use <nombreBD>. A diferencia del lenguaje SQL, en MongoDB no es necesario crear la base de datos antes de insertar datos en ella. Si la base de datos no existe, MongoDB la creará automáticamente al insertar datos en ella.También sucede lo mismo con las colecciones. No es necesario crearlas antes de insertar datos en ellas. Si la colección no existe, MongoDB la creará automáticamente al insertar datos en ella. En este caso, he usado el comando db.<nombreColeccion>.insertMany() para insertar varios documentos en una colección, y su vez, crear la misma colección si no existe.
+// Para crear las bases de datos he usado el comando use <nombreBD>. 
+A diferencia del lenguaje SQL, en MongoDB no es necesario crear la base de datos antes de insertar datos en ella. 
+Si la base de datos no existe, MongoDB la creará automáticamente al insertar datos en ella.También sucede lo mismo con las colecciones. No es necesario crearlas antes de insertar datos en ellas.
+Si la colección no existe, MongoDB la creará automáticamente al insertar datos en ella. 
+En este caso, he usado el comando db.<nombreColeccion>.insertMany() para insertar varios documentos en una colección, y su vez, crear la misma colección si no existe.
 
 use tiendainformatica;
 
