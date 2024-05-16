@@ -1,0 +1,15 @@
+use tiendainformatica;
+
+db.fabricantes.insertMany([
+    { codigo: 1, nombre: 'Apple' },
+    { codigo: 2, nombre: 'Samsung' },
+    { codigo: 3, nombre: 'Microsoft' },
+    { codigo: 4, nombre: 'Lenovo' },
+    { codigo: 5, nombre: 'HP' },
+    { codigo: 6, nombre: 'Dell' },
+    { codigo: 7, nombre: 'Asus' },
+    { codigo: 8, nombre: 'Acer' },
+    { codigo: 9, nombre: 'Sony' },
+    { codigo: 10, nombre: 'Toshiba' }
+]);
+

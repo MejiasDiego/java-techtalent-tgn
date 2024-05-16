@@ -120,7 +120,7 @@ public class TG19_03 extends JFrame{
 				            SOseleccionado = SOsOpcion2.getText();
 				        } else if (SOsOpcion3.isSelected()) {
 				            SOseleccionado = SOsOpcion3.getText();
-				        }-
+				        }
 				        
 				    	String especialidadSeleccionado = "";
 				        if (especialidad1.isSelected()) {
