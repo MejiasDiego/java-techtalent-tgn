@@ -136,4 +136,4 @@ SET precio = precio * 0.9
 -- 1.20 Aplicar un descuento de 10€ a todos los productos cuyo precio sea mayor o igual a 120€
 UPDATE articulos
 SET precio = precio - 10
-WHERE precio >= 120;
+WHERE precio >= 120;	
