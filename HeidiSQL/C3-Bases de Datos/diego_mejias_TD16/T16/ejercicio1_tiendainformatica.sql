@@ -17,7 +17,7 @@ CREATE TABLE articulos (
 	REFERENCES fabricantes(codigo));
 	
 
-INSERT INTO fabricantes (codigo, nombre) VALUES
+INSERT INTO fabricantes (codigo, nombre) VALUESempleados
 (1, 'Apple'),
 (2, 'Samsung'),
 (3, 'Microsoft'),

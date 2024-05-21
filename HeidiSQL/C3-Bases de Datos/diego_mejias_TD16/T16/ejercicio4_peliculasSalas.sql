@@ -17,7 +17,7 @@ CREATE TABLE peliculas (
 	PRIMARY KEY (codigo));
 
 -- Insertar datos en la tabla peliculas
-INSERT INTO peliculas (codigo, nombre, calificaciondad) VALUES
+INSERT INTO peliculas (codigo, nombre, calificacionedad) VALUES
 (1, 'El Padrino', 18),
 (2, 'Titanic', 12),
 (3, 'El Señor de los Anillos: La Comunidad del Anillo', 12),
@@ -51,7 +51,7 @@ SELECT DISTINCT calificacion_edad
 FROM peliculas 
 
 -- 4.3 Mostrar todas las películas que no han sido calificadas (Voy a añadir una película sin calificación para comprobar que funciona)
-INSERT INTO peliculas (nombre, calificacion_edad) 
+INSERT INTO peliculas (nombre, calificacionedad) 
 VALUES ('Interstellar', NULL);
 
 SELECT *
@@ -73,7 +73,7 @@ WHERE pelicula IS NULL
 -- 4.7 Mostrar los nombres de las películas que no se proyectan en ninguna sala.
 
 -- 4.8 Añadir una nueva película ‘Uno, Dos, Tres’, para mayores de 7 años.
-INSERT INTO peliculas (nombre, calificacion_edad)
+INSERT INTO peliculas (nombre, calificacionedad)
 VALUES ('Uno, Dos, Tres', 7)
 
 -- 4.9 Hacer constar que todas las películas no calificadas han sido calificadas ‘no recomendables para menores de 13 años’.
