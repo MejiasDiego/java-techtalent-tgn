@@ -9,9 +9,11 @@ public class t10_03 {
 	public static void main(String[] args) {
 		Random random = new Random();
 		int numeroRandom = random.nextInt(1000);
-		System.out.println("Generando número aleatorio...");
+		System.out.println("Generando número "
+				+ "aleatorio...");
 		try {
-			System.out.println("El número aleatorio generado es:"
+			System.out.println("El número "
+					+ "aleatorio generado es:"
 					+numeroRandom);
 				throw new miExcepcion(numeroRandom);
 			} catch (miExcepcion e) {

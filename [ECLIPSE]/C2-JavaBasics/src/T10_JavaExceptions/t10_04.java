@@ -28,7 +28,8 @@ public class t10_04 {
 
     public int dividir() {
         if (op2 == 0) {
-            throw new ArithmeticException("División por cero");
+            throw new ArithmeticException
+            ("División por cero");
         }
         return op1 / op2;
     }

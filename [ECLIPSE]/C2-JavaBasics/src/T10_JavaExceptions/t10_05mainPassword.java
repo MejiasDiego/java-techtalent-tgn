@@ -27,7 +27,8 @@ public class t10_05mainPassword {
 
 	        // Mostrar la contraseña y si es o no fuerte
 	        for (int i = 0; i < tamaño; i++) {
-	            System.out.println(passwordsValues[i] + " " + fuertesArray[i]);
+	            System.out.println(passwordsValues[i] + " " + 
+	            		fuertesArray[i]);
 	        }
 
 	        scanner.close();
