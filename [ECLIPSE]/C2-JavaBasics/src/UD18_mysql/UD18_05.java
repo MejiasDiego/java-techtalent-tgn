@@ -10,19 +10,24 @@ public class UD18_05 {
 
     public static void main(String[] args) {
         conexionDiego c = new conexionDiego();
-        String db = "`tienda de informatica 2`"; // Manteniendo el nombre de la base de datos
+        String db = "los directores2"; // Manteniendo el nombre de la base de datos
         String tabla1 = "directores", tabla2 = "despachos"; // Cambio de nombres de tablas
         String atributos1 = "(" + "  `DNI` varchar(8) NOT NULL,"
                 + "  `nomApels` varchar(255) NOT NULL," + "  `DNIJefe` varchar(8),"
                 + "  `despacho` int," + "  PRIMARY KEY (`DNI`),"
                 + "  KEY `FK_directores_directores` (`DNIJefe`),"
                 + "  KEY `FK_directores_despachos` (`despacho`),"
-                + "  CONSTRAINT `FK_directores_directores` FOREIGN KEY (`DNIJefe`) REFERENCES `directores` (`DNI`) ON DELETE CASCADE ON UPDATE CASCADE,"
-                + "  CONSTRAINT `FK_directores_despachos` FOREIGN KEY (`despacho`) REFERENCES `despachos` (`numero`) ON DELETE CASCADE ON UPDATE CASCADE"
+                + "  CONSTRAINT `FK_directores_directores` "
+                + "FOREIGN KEY (`DNIJefe`) REFERENCES `directores` (`DNI`) "
+                + "ON DELETE CASCADE ON UPDATE CASCADE,"
+                + "  CONSTRAINT `FK_directores_despachos` "
+                + "FOREIGN KEY (`despacho`) REFERENCES `despachos` (`numero`)"
+                + " ON DELETE CASCADE ON UPDATE CASCADE"
                 + ")";
         String atributos2 = "(" + "  `numero` int NOT NULL,"
                 + "  `capacidad` int," + "  PRIMARY KEY (`numero`)" + ") ";
-        String values2 = "(`numero`, `capacidad`) VALUES" + "(101, 4)," + "(102, 6)," + "(103, 8)," + "(104, 10),"
+        String values2 = "(`numero`, `capacidad`) VALUES" + "(101, 4)," + 
+                "(102, 6)," + "(103, 8)," + "(104, 10),"
                 + "(105, 5)," + "(106, 7)," + "(107, 9)," + "(108, 3);";
         String values1 = "(`DNI`, `nomApels`, `DNIJefe`, `despacho`) VALUES"
                 + "('45678901', 'Juan Martínez', '23456789', 104),"

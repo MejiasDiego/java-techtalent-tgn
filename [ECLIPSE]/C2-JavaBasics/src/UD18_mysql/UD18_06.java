@@ -21,15 +21,22 @@ public class UD18_06 {
                 + "  PRIMARY KEY (`codigoPieza`, `idProveedor`),"
                 + "  KEY `FK_suministra_piezas` (`codigoPieza`),"
                 + "  KEY `FK_suministra_proveedores` (`idProveedor`),"
-                + "  CONSTRAINT `FK_suministra_piezas` FOREIGN KEY (`codigoPieza`) REFERENCES `piezas` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE,"
-                + "  CONSTRAINT `FK_suministra_proveedores` FOREIGN KEY (`idProveedor`) REFERENCES `proveedores` (`id`) ON DELETE CASCADE ON UPDATE CASCADE"
+                + "  CONSTRAINT `FK_suministra_piezas`"
+                + " FOREIGN KEY (`codigoPieza`) REFERENCES `piezas` (`codigo`)"
+                + " ON DELETE CASCADE ON UPDATE CASCADE,"
+                + "  CONSTRAINT `FK_suministra_proveedores`"
+                + " FOREIGN KEY (`idProveedor`) REFERENCES `proveedores` (`id`)"
+                + " ON DELETE CASCADE ON UPDATE CASCADE"
                 + ")";
         String values1 = "(`codigo`, `nombre`) VALUES"
-                + "(1,'martillo'),(2,'canicas'),(3,'peonza'),(4,'dragon quest iv'),(5,'smash bros 3ds'),(6,'el archivo de las tormentas'),(7,'saitama'),(8,'coulant'),(9,'trenecito'),(10,'conductor')";
+                + "(1,'martillo'),(2,'canicas'),(3,'peonza'),(4,'dragon quest iv'),"
+                + "(5,'smash bros 3ds'),(6,'el archivo de las tormentas'),"
+                + "(7,'saitama'),(8,'coulant'),(9,'trenecito'),(10,'conductor')";
         String values2 = "(`id`) VALUES"
                 + "('A'),('X'),('C'),('G'),('N'),('B'),('V'),('U'),('J'),('Z')";
         String values3 = "(`codigoPieza`, `precio`, `idProveedor`) VALUES"
-                + "(1,11,'A'),(2,22,'B'),(3,33,'C'),(4,44,'G'),(5,55,'N'),(6,66,'B'),(7,77,'V'),(8,88,'U'),(9,99,'J'),(10,100,'Z')";
+                + "(1,11,'A'),(2,22,'B'),(3,33,'C'),(4,44,'G'),(5,55,'N'),"
+                + "(6,66,'B'),(7,77,'V'),(8,88,'U'),(9,99,'J'),(10,100,'Z')";
 
         c.createDB("piezasYproveedoresEclipse"); // Llamada a la nueva base de datos
 
