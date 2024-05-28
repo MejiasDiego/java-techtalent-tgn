@@ -52,7 +52,8 @@ public class UD20_01 extends JFrame {
     public void cambiarTamañoEtiqueta() {
         try {
             // Solicitar al usuario que ingrese un número
-            String input = JOptionPane.showInputDialog(null, "Introduce cuantos pixeles quieres agrandar la etiqueta");
+            String input = JOptionPane.showInputDialog(null, "Introduce cuantos"
+            		+ " pixeles quieres agrandar la etiqueta");
 
             // Convertir el input a entero
             int sumarPixeles = Integer.parseInt(input);
@@ -65,7 +66,8 @@ public class UD20_01 extends JFrame {
             etiqueta.setFont(new Font(currentFont.getName(), currentFont.getStyle(), newSize));
         } catch (NumberFormatException e) {
             // Manejar el caso donde el input no es un número válido
-            JOptionPane.showMessageDialog(null, "Por favor, introduce un número válido", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor, introduce un n"
+            		+ "úmero válido", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

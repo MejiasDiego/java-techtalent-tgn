@@ -47,6 +47,8 @@ public class UD20_02 extends JFrame{
 
 			final JButton boton2 = new JButton("Botón 2");
 			boton2.setBounds(240,20,85,20);
+			
+			
 			contentPane.add(boton2);
 		     // Añadir ActionListener al botón 1
 	        boton1.addActionListener(new ActionListener() {

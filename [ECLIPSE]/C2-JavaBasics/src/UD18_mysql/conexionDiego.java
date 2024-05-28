@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import javax.swing.JOptionPane;
 
 public class conexionDiego {
@@ -62,7 +61,8 @@ public class conexionDiego {
 			useDB(db);
 			query = "INSERT INTO " + tabla + values;
 			st.executeUpdate(query);
-			System.out.println("Se han insertado los datos de la tabla " + tabla + " de manera exitosa.");
+			System.out.println("Se han insertado los datos de la tabla"
+					+ " " + tabla + " de manera exitosa.");
 		} catch (SQLException e) {
 			System.out.println("Error introduciendo datos en la tabla " + tabla);
 		}
@@ -73,9 +73,11 @@ public class conexionDiego {
 			useDB(db);
 			query = "DELETE FROM " + tabla + " WHERE ID = `" + id + "`"; 
 			st.executeUpdate(query);
-			JOptionPane.showMessageDialog(null, "Se ha borrado el registro " + id + " de la tabla " + tabla);
+			JOptionPane.showMessageDialog(null, "Se ha borrado el registro "
+					+ "" + id + " de la tabla " + tabla);
 		} catch (SQLException e) {
-			System.out.println("Error eliminando el registro " + id + " de la tabla " + tabla);
+			System.out.println("Error eliminando el registro "
+		+ id + " de la tabla " + tabla);
 		}
 	}
 	
