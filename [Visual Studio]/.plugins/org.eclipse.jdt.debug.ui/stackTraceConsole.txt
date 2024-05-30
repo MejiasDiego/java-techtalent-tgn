@@ -1,0 +1,6 @@
+int multiplicador = 5;
+		int limite = 10;
+		
+		for (int i=0; i <= limite; i++) {
+			int resultado = multiplicador * i;
+			System.out.println(multiplicador + " * " + i + " = " + resultado);

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 5 elements from project &apos;C2-JavaBasics&apos;&#x0D;&#x0A;- Original project: &apos;C2-JavaBasics&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     UD4.UD_4.java&#x0D;&#x0A;     UD4.UD5_1.java&#x0D;&#x0A;     UD4.UD5_2.java&#x0D;&#x0A;     UD4.UD5_3.java&#x0D;&#x0A;     UD4.UD5_5.java" description="Delete elements" element1="/src&lt;UD4{UD5_1.java" element2="/src&lt;UD4{UD5_2.java" element3="/src&lt;UD4{UD5_3.java" element4="/src&lt;UD4{UD_4.java" element5="/src&lt;UD4{UD5_5.java" elements="5" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1707245394911" subPackages="false" version="1.0"/>
+</session>
