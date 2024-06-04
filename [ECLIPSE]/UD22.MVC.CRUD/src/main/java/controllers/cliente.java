@@ -130,27 +130,27 @@ public class cliente {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo mostrar los registros, error: " + e.toString());
         }
-    }}
+    }
     
-//    public void SeleccionarCliente(JTable tablaCliente, JTextField paramNombre,
-//            JTextField paramApellido, JTextField paraDireccion,
-//            JTextField paramDNI, JTextField paramFecha, JTextField paramID) {
-//
-//        try {
-//            int fila = tablaCliente.getSelectedRow();
-//
-//            if (fila >= 0) {
-//                paramNombre.setText(tablaCliente.getValueAt(fila, 0).toString());
-//                paramApellido.setText(tablaCliente.getValueAt(fila, 1).toString());
-//                paraDireccion.setText(tablaCliente.getValueAt(fila, 2).toString());
-//                paramDNI.setText(tablaCliente.getValueAt(fila,3).toString());
-//                paramFecha.setText(tablaCliente.getValueAt(fila, 4).toString());
-//                paramID.setText(tablaCliente.getValueAt(fila, 5).toString());}
-//            
-//                else{           
-//                	JOptionPane.showMessageDialog(null, "Fila no seleccionada");
-//                }
-//        } catch (Exception e) {
-//        	JOptionPane.showMessageDialog(null, "Error de selección, error: "+ e);        	}
-//    	}
-//   }
+    public void SeleccionarCliente(JTable tablaCliente, JTextField paramNombre,
+            JTextField paramApellido, JTextField paraDireccion,
+            JTextField paramDNI, JTextField paramFecha, JTextField paramID) {
+
+        try {
+            int fila = tablaCliente.getSelectedRow();
+
+            if (fila >= 0) {
+                paramNombre.setText(tablaCliente.getValueAt(fila, 1).toString());
+                paramApellido.setText(tablaCliente.getValueAt(fila, 2).toString());
+                paraDireccion.setText(tablaCliente.getValueAt(fila, 3).toString());
+                paramDNI.setText(tablaCliente.getValueAt(fila,4).toString());
+                paramFecha.setText(tablaCliente.getValueAt(fila, 5).toString());
+                paramID.setText(tablaCliente.getValueAt(fila, 0).toString());}
+            
+                else{           
+                	JOptionPane.showMessageDialog(null, "Fila no seleccionada");
+                }
+        } catch (Exception e) {
+        	JOptionPane.showMessageDialog(null, "Error de selección, error: "+ e);        	}
+    	}
+   }

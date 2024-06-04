@@ -195,15 +195,8 @@ public class formCliente extends JFrame {
 		panel_1.setLayout(sl_panel_1);
 		
 		JScrollPane scrollPane = new JScrollPane();
-//		scrollPane.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				cliente objetoCliente = new cliente();
-//				objetoCliente.SeleccionarCliente(table,textField_3Nombre,textField_1Apellido,
-//						textField_4Dirección,textFieldDNI,textField_2Fecha,textFieldId);
-//				
-//			}
-//		});
+		
+		
 		sl_panel_1.putConstraint(SpringLayout.NORTH, scrollPane, 10, SpringLayout.NORTH, panel_1);
 		sl_panel_1.putConstraint(SpringLayout.WEST, scrollPane, 10, SpringLayout.WEST, panel_1);
 		sl_panel_1.putConstraint(SpringLayout.SOUTH, scrollPane, 333, SpringLayout.NORTH, panel_1);
@@ -212,6 +205,14 @@ public class formCliente extends JFrame {
 		panel_1.add(scrollPane);
 		
 		table = new JTable();
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cliente objetoCliente = new cliente();
+				objetoCliente.SeleccionarCliente(table,textField_3Nombre,textField_1Apellido,
+						textField_4Dirección,textFieldDNI,textField_2Fecha,textFieldId);
+			}
+		});
 		
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane.setViewportView(table);
