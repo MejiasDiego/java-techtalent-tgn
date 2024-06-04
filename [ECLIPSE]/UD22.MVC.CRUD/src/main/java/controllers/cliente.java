@@ -10,6 +10,7 @@ import javax.swing.table.TableRowSorter;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import models.conexionBD;
@@ -153,4 +154,60 @@ public class cliente {
         } catch (Exception e) {
         	JOptionPane.showMessageDialog(null, "Error de selección, error: "+ e);        	}
     	}
-   }
+    
+    public void ModificarCliente (JTextField paramID,JTextField paramNombre,
+            JTextField paramApellido, JTextField paraDireccion,
+            JTextField paramDNI, JTextField paramFecha) {
+    	setId(Integer.parseInt(paramID.getText()));
+    	setNombreCliente(paramNombre.getText());
+    	setApellidoCliente(paramApellido.getText());
+    	setDirecciónCliente(paraDireccion.getText());
+    	setDNI(Integer.parseInt(paramDNI.getText()));
+    	setFechaCliente(paramFecha.getText());
+    	
+    	
+        conexionBD objetoConexion = new conexionBD();
+        String consulta = "UPDATE cliente SET cliente.nombre = ?, cliente.apellido= ?,"
+        		+ " cliente.direccion=?,cliente.dni=?,cliente.fecha=? WHERE cliente.id = ?;";
+        try {
+                CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
+                cs.setString(1, getNombreCliente());
+                cs.setString(2, getApellidoCliente());
+                cs.setString(3, getDirecciónCliente());
+                cs.setInt(4, getDNI());
+                cs.setString(5, getFechaCliente());
+                cs.setInt(6,getId());
+                cs.execute();
+                JOptionPane.showMessageDialog(null, "Modificación realizada con éxito");
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "No se modificó correctamente el cliente, error: " + e.toString());
+            }
+        
+        }
+    public void EliminarCliente(JTextField paramID) {
+        try {
+            setId(Integer.parseInt(paramID.getText()));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "ID no válido, error: " + e.toString());
+            return;
+        }
+
+        conexionBD objetoConexion = new conexionBD();
+        String consulta = "DELETE FROM cliente WHERE id = ?";
+
+        try {
+            Connection con = objetoConexion.estableceConexion();
+            CallableStatement cs = con.prepareCall(consulta);
+            cs.setInt(1, getId());
+            cs.execute();
+            JOptionPane.showMessageDialog(null, "Cliente eliminado con éxito");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No se eliminó con éxito el cliente, error: " + e.toString());
+        }
+    }
+
+    	
+    }
+
+    
+    	

@@ -166,12 +166,22 @@ public class formCliente extends JFrame {
 		panel.add(btnGuardar);
 		
 		JButton btnModificar = new JButton("Modificar");
+		btnModificar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				cliente objetoCliente = new cliente();
+				objetoCliente.ModificarCliente(textFieldId,textField_3Nombre, textField_1Apellido, textField_4Dirección, textFieldDNI, textField_2Fecha);
+				objetoCliente.MostrarCliente(table);
+			}
+		});
 		sl_panel.putConstraint(SpringLayout.NORTH, btnModificar, 19, SpringLayout.SOUTH, btnGuardar);
 		sl_panel.putConstraint(SpringLayout.WEST, btnModificar, 10, SpringLayout.WEST, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, btnModificar, -16, SpringLayout.EAST, panel);
 		panel.add(btnModificar);
 		
 		JButton btnEliminar = new JButton("Eliminar");
+		
 		sl_panel.putConstraint(SpringLayout.NORTH, btnEliminar, 367, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.WEST, btnEliminar, 10, SpringLayout.WEST, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, btnEliminar, -14, SpringLayout.EAST, panel);
@@ -212,6 +222,17 @@ public class formCliente extends JFrame {
 				objetoCliente.SeleccionarCliente(table,textField_3Nombre,textField_1Apellido,
 						textField_4Dirección,textFieldDNI,textField_2Fecha,textFieldId);
 			}
+			
+		});
+		
+		
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cliente objetoCliente = new cliente();
+				objetoCliente.EliminarCliente(textFieldId);
+				objetoCliente.MostrarCliente(table);
+			}
 		});
 		
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -225,6 +246,10 @@ public class formCliente extends JFrame {
 		));
 		cliente objetoCliente = new cliente();
 		objetoCliente.MostrarCliente(table);;
+		
+		this.setLocationRelativeTo(null);
+		textFieldId.setEnabled(false);
+		
 		
 		JLabel lblDireccin = new JLabel("DIRECCIÓN");
 		sl_panel.putConstraint(SpringLayout.NORTH, lblDireccin, 101, SpringLayout.NORTH, panel);
