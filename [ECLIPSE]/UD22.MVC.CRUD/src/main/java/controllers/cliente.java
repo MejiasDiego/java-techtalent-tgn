@@ -23,6 +23,11 @@ public class cliente {
     String direcciónCliente;
     int DNI;
     String fechaCliente;
+    conexionBD objetoConexion;
+
+    public cliente(String dbName) {
+        objetoConexion = new conexionBD(dbName);
+    }
 
     public int getId() {
         return id;
@@ -61,27 +66,24 @@ public class cliente {
         this.fechaCliente = fechaCliente;
     }
 
-    public void insertarCliente(JTextField paramNombre,
-            JTextField paramApellido, JTextField paraDireccion,
-            JTextField paramDNI, JTextField paramFecha) {
-        
+    public void insertarCliente(JTextField paramNombre, JTextField paramApellido, JTextField paraDireccion, JTextField paramDNI, JTextField paramFecha) {
+        if (!validarCampos(paramNombre, paramApellido, paraDireccion, paramDNI, paramFecha)) {
+            return;
+        }
+
+        int confirm = JOptionPane.showConfirmDialog(null, "¿Está seguro de que desea guardar este cliente?", "Confirmar Guardado", JOptionPane.YES_NO_OPTION);
+        if (confirm != JOptionPane.YES_OPTION) {
+            return;
+        }
+
         setNombreCliente(paramNombre.getText());
         setApellidoCliente(paramApellido.getText());
         setDirecciónCliente(paraDireccion.getText());
-        try {
-            int dni = Integer.parseInt(paramDNI.getText());
-            setDNI(dni);
-        } catch (NumberFormatException e) {
-            // Maneja el caso donde el DNI no es un número válido
-            System.out.println("El DNI ingresado no es un número válido");
-            return;
-        }
+        setDNI(Integer.parseInt(paramDNI.getText()));
         setFechaCliente(paramFecha.getText());
-        
-        conexionBD objetoConexion = new conexionBD();
-        
+
         String consulta = "INSERT INTO cliente (nombre, apellido, direccion, dni, fecha) VALUES (?, ?, ?, ?, ?)";
-        
+
         try {
             Connection con = objetoConexion.estableceConexion();
             CallableStatement cs = con.prepareCall(consulta);
@@ -98,7 +100,6 @@ public class cliente {
     }
 
     public void MostrarCliente(JTable paramTablaTotalAlumnos) {
-        conexionBD objetoConexion = new conexionBD();
         DefaultTableModel modelo = new DefaultTableModel();
         TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
         paramTablaTotalAlumnos.setRowSorter(OrdenarTabla);
@@ -132,11 +133,8 @@ public class cliente {
             JOptionPane.showMessageDialog(null, "No se pudo mostrar los registros, error: " + e.toString());
         }
     }
-    
-    public void SeleccionarCliente(JTable tablaCliente, JTextField paramNombre,
-            JTextField paramApellido, JTextField paraDireccion,
-            JTextField paramDNI, JTextField paramFecha, JTextField paramID) {
 
+    public void SeleccionarCliente(JTable tablaCliente, JTextField paramNombre, JTextField paramApellido, JTextField paraDireccion, JTextField paramDNI, JTextField paramFecha, JTextField paramID) {
         try {
             int fila = tablaCliente.getSelectedRow();
 
@@ -144,46 +142,46 @@ public class cliente {
                 paramNombre.setText(tablaCliente.getValueAt(fila, 1).toString());
                 paramApellido.setText(tablaCliente.getValueAt(fila, 2).toString());
                 paraDireccion.setText(tablaCliente.getValueAt(fila, 3).toString());
-                paramDNI.setText(tablaCliente.getValueAt(fila,4).toString());
+                paramDNI.setText(tablaCliente.getValueAt(fila, 4).toString());
                 paramFecha.setText(tablaCliente.getValueAt(fila, 5).toString());
-                paramID.setText(tablaCliente.getValueAt(fila, 0).toString());}
-            
-                else{           
-                	JOptionPane.showMessageDialog(null, "Fila no seleccionada");
-                }
-        } catch (Exception e) {
-        	JOptionPane.showMessageDialog(null, "Error de selección, error: "+ e);        	}
-    	}
-    
-    public void ModificarCliente (JTextField paramID,JTextField paramNombre,
-            JTextField paramApellido, JTextField paraDireccion,
-            JTextField paramDNI, JTextField paramFecha) {
-    	setId(Integer.parseInt(paramID.getText()));
-    	setNombreCliente(paramNombre.getText());
-    	setApellidoCliente(paramApellido.getText());
-    	setDirecciónCliente(paraDireccion.getText());
-    	setDNI(Integer.parseInt(paramDNI.getText()));
-    	setFechaCliente(paramFecha.getText());
-    	
-    	
-        conexionBD objetoConexion = new conexionBD();
-        String consulta = "UPDATE cliente SET cliente.nombre = ?, cliente.apellido= ?,"
-        		+ " cliente.direccion=?,cliente.dni=?,cliente.fecha=? WHERE cliente.id = ?;";
-        try {
-                CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-                cs.setString(1, getNombreCliente());
-                cs.setString(2, getApellidoCliente());
-                cs.setString(3, getDirecciónCliente());
-                cs.setInt(4, getDNI());
-                cs.setString(5, getFechaCliente());
-                cs.setInt(6,getId());
-                cs.execute();
-                JOptionPane.showMessageDialog(null, "Modificación realizada con éxito");
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "No se modificó correctamente el cliente, error: " + e.toString());
+                paramID.setText(tablaCliente.getValueAt(fila, 0).toString());
+            } else {
+                JOptionPane.showMessageDialog(null, "Fila no seleccionada");
             }
-        
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error de selección, error: " + e);
         }
+    }
+
+    public void ModificarCliente(JTextField paramID, JTextField paramNombre, JTextField paramApellido, JTextField paraDireccion, JTextField paramDNI, JTextField paramFecha) {
+        setId(Integer.parseInt(paramID.getText()));
+        setNombreCliente(paramNombre.getText());
+        setApellidoCliente(paramApellido.getText());
+        setDirecciónCliente(paraDireccion.getText());
+        setDNI(Integer.parseInt(paramDNI.getText()));
+        setFechaCliente(paramFecha.getText());
+
+        int confirm = JOptionPane.showConfirmDialog(null, "¿Está seguro de que desea modificar este cliente?", "Confirmar Modificación", JOptionPane.YES_NO_OPTION);
+        if (confirm != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        String consulta = "UPDATE cliente SET cliente.nombre = ?, cliente.apellido= ?, cliente.direccion=?, cliente.dni=?, cliente.fecha=? WHERE cliente.id = ?;";
+        try {
+            CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
+            cs.setString(1, getNombreCliente());
+            cs.setString(2, getApellidoCliente());
+            cs.setString(3, getDirecciónCliente());
+            cs.setInt(4, getDNI());
+            cs.setString(5, getFechaCliente());
+            cs.setInt(6, getId());
+            cs.execute();
+            JOptionPane.showMessageDialog(null, "Modificación realizada con éxito");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No se modificó correctamente el cliente, error: " + e.toString());
+        }
+    }
+
     public void EliminarCliente(JTextField paramID) {
         try {
             setId(Integer.parseInt(paramID.getText()));
@@ -192,7 +190,11 @@ public class cliente {
             return;
         }
 
-        conexionBD objetoConexion = new conexionBD();
+        int confirm = JOptionPane.showConfirmDialog(null, "¿Está seguro de que desea eliminar este cliente?", "Confirmar Eliminación", JOptionPane.YES_NO_OPTION);
+        if (confirm != JOptionPane.YES_OPTION) {
+            return;
+        }
+
         String consulta = "DELETE FROM cliente WHERE id = ?";
 
         try {
@@ -206,8 +208,17 @@ public class cliente {
         }
     }
 
-    	
+    private boolean validarCampos(JTextField paramNombre, JTextField paramApellido, JTextField paraDireccion, JTextField paramDNI, JTextField paramFecha) {
+        if (paramNombre.getText().trim().isEmpty() || paramApellido.getText().trim().isEmpty() || paraDireccion.getText().trim().isEmpty() || paramDNI.getText().trim().isEmpty() || paramFecha.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Todos los campos deben estar completos.");
+            return false;
+        }
+        try {
+            Integer.parseInt(paramDNI.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "El DNI debe ser un número válido.");
+            return false;
+        }
+        return true;
     }
-
-    
-    	
+}
