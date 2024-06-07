@@ -9,6 +9,7 @@ import javax.swing.table.TableRowSorter;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -96,11 +97,11 @@ public class cliente {
         }
     }
 
-    public void MostrarCliente(JTable paramTablaTotalAlumnos) {
+    public void MostrarCliente(JTable paramMostrarClientes) {
         conexionBD objetoConexion = new conexionBD();
         DefaultTableModel modelo = new DefaultTableModel();
         TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
-        paramTablaTotalAlumnos.setRowSorter(OrdenarTabla);
+        paramMostrarClientes.setRowSorter(OrdenarTabla);
         String sql = "";
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
@@ -109,7 +110,7 @@ public class cliente {
         modelo.addColumn("DNI");
         modelo.addColumn("Fecha");
         
-        paramTablaTotalAlumnos.setModel(modelo);
+        paramMostrarClientes.setModel(modelo);
         sql = "SELECT * FROM cliente;";
         String[] datos = new String[6];
         Statement st;
@@ -126,7 +127,7 @@ public class cliente {
                 datos[5] = rs.getString(6);
                 modelo.addRow(datos);
             }
-            paramTablaTotalAlumnos.setModel(modelo);
+            paramMostrarClientes.setModel(modelo);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo mostrar los registros, error: " + e.toString());
         }
@@ -154,19 +155,54 @@ public class cliente {
             int fila = tablaCliente.getSelectedRow();
 
             if (fila >= 0) {
+                paramID.setText(tablaCliente.getValueAt(fila, 5).toString());
                 paramNombre.setText(tablaCliente.getValueAt(fila, 0).toString());
                 paramApellido.setText(tablaCliente.getValueAt(fila, 1).toString());
                 paraDireccion.setText(tablaCliente.getValueAt(fila, 2).toString());
-                paramDNI.setText(tablaCliente.getValueAt(fila,3).toString());
+                paramDNI.setText(tablaCliente.getValueAt(fila, 3).toString());
                 paramFecha.setText(tablaCliente.getValueAt(fila, 4).toString());
-                paramID.setText(tablaCliente.getValueAt(fila, 5).toString());}
-            
-                else{           
-                	JOptionPane.showMessageDialog(null, "Fila no seleccionada");
-                }
+            } 
         } catch (Exception e) {
-        	JOptionPane.showMessageDialog(null, "Error de selección, error: "+ e);        	}
-    	}
-   }
-
-    
+            JOptionPane.showMessageDialog(null, "Error de selección, error: " + e);}
+        }
+        public void ModificarCliente(JTable tablaCliente, JTextField paramNombre,
+                JTextField paramApellido, JTextField paraDireccion,
+                JTextField paramDNI, JTextField paramFecha, JTextField paramID) {
+            
+            conexionBD objetoConexion = new conexionBD();
+            
+            try {
+                // Obtener los valores de los campos
+                int idCliente = Integer.parseInt(paramID.getText());
+                String nombreCliente = paramNombre.getText();
+                String apellidoCliente = paramApellido.getText();
+                
+                // Consulta SQL para actualizar el cliente
+                String consulta = "UPDATE cliente SET nombre=?, apellido=?, direccion=?, dni=?, fecha=? WHERE id=?";
+                
+                // Establecer conexión y preparar la consulta
+                Connection con = objetoConexion.estableceConexion();
+                PreparedStatement ps = con.prepareStatement(consulta);
+                ps.setString(1, nombreCliente);
+                ps.setString(2, apellidoCliente);
+                ps.setString(3, paraDireccion.getText());
+                ps.setInt(4, Integer.parseInt(paramDNI.getText()));
+                ps.setString(5, paramFecha.getText());
+                ps.setInt(6, idCliente);
+                
+                // Ejecutar la consulta
+                int filasActualizadas = ps.executeUpdate();
+                
+                if (filasActualizadas > 0) {
+                    JOptionPane.showMessageDialog(null, "Cliente modificado correctamente");
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se pudo modificar el cliente");
+                }
+                
+                // Actualizar la tabla después de la modificación
+                MostrarCliente(tablaCliente);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al modificar el cliente: " + e.getMessage());
+            }
+        }
+    }

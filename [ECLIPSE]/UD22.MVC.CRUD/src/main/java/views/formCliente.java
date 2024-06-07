@@ -7,6 +7,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.SpringLayout;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import java.awt.FlowLayout;
 import javax.swing.JProgressBar;
 import javax.swing.JTable;
@@ -23,6 +26,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.UIManager;
 import javax.swing.ListSelectionModel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -151,19 +155,26 @@ public class formCliente extends JFrame {
 		sl_panel.putConstraint(SpringLayout.WEST, btnGuardar, 10, SpringLayout.WEST, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, btnGuardar, -14, SpringLayout.EAST, panel);
 		btnGuardar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// Crear un objeto cliente
-				cliente objetoCliente = new cliente();
-				// Insertar el cliente
-				objetoCliente.insertarCliente(textField_3Nombre, textField_1Apellido, textField_4Dirección, textFieldDNI, textField_2Fecha);
-				// Mostrar los clientes actualizados
-				objetoCliente.MostrarCliente(table);
-			}
+		    public void actionPerformed(ActionEvent e) {
+		        int confirmacion = JOptionPane.showConfirmDialog(null, "¿Está seguro de guardar este cliente?", "Confirmar Guardar Cliente", JOptionPane.YES_NO_OPTION);
+		        if (confirmacion == JOptionPane.YES_OPTION) {
+		            cliente objetoCliente = new cliente();
+		            objetoCliente.insertarCliente(textField_3Nombre, textField_1Apellido, textField_4Dirección, textFieldDNI, textField_2Fecha);
+		            objetoCliente.MostrarCliente(table);
+		        }
+		    }
 		});
+		
 		sl_panel.putConstraint(SpringLayout.SOUTH, btnGuardar, -117, SpringLayout.SOUTH, panel);
 		panel.add(btnGuardar);
 		
 		JButton btnModificar = new JButton("Modificar");
+		btnModificar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		sl_panel.putConstraint(SpringLayout.NORTH, btnModificar, 19, SpringLayout.SOUTH, btnGuardar);
 		sl_panel.putConstraint(SpringLayout.WEST, btnModificar, 10, SpringLayout.WEST, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, btnModificar, -16, SpringLayout.EAST, panel);
@@ -220,5 +231,52 @@ public class formCliente extends JFrame {
 		panel.add(lblDireccin);
 		sl_panel.putConstraint(SpringLayout.WEST, lblDireccin, 0, SpringLayout.WEST, lblNewLabel);
 		sl_panel.putConstraint(SpringLayout.EAST, lblDireccin, -6, SpringLayout.WEST, textField_1Apellido);
+		
+		textFieldId.setEditable(false); // Hacer el campo ID no editable
+
+		// Ajustar la asignación de campos en el método actionPerformed del botón "Eliminar"
+		btnEliminar.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        int filaSeleccionada = table.getSelectedRow();
+		        if (filaSeleccionada != -1) {
+		            int idCliente = Integer.parseInt(table.getValueAt(filaSeleccionada, 0).toString());
+		            int confirmacion = JOptionPane.showConfirmDialog(null, "¿Está seguro de eliminar este cliente?", "Confirmar Eliminar Cliente", JOptionPane.YES_NO_OPTION);
+		            if (confirmacion == JOptionPane.YES_OPTION) {
+		                cliente objetoCliente = new cliente();
+		                objetoCliente.eliminarCliente(idCliente);
+		                objetoCliente.MostrarCliente(table);
+		            }
+		        } else {
+		            JOptionPane.showMessageDialog(null, "Por favor, seleccione un cliente para eliminar.");
+		        }
+		    }
+		});
+
+		// Ajustar la asignación de campos en el listener de selección de la tabla
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+		    public void valueChanged(ListSelectionEvent event) {
+		        if (!event.getValueIsAdjusting()) {
+		            cliente objetoCliente = new cliente();
+		            objetoCliente.SeleccionarCliente(table, textFieldId, textField_3Nombre, textField_1Apellido, textField_4Dirección, textFieldDNI, textField_2Fecha);
+		        }
+		    }
+		});
+		btnModificar.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        int confirmacion = JOptionPane.showConfirmDialog(null, "¿Está seguro de modificar este cliente?", "Confirmar Modificar Cliente", JOptionPane.YES_NO_OPTION);
+		        if (confirmacion == JOptionPane.YES_OPTION) {
+		            cliente objetoCliente = new cliente();
+		            objetoCliente.ModificarCliente(table, textField_3Nombre, textField_1Apellido, textField_4Dirección, textFieldDNI, textField_2Fecha, textFieldId);
+		            objetoCliente.MostrarCliente(table);
+		        }
+		    }
+		});
+
+
 	}
+	
+	
+	
 }
+
+
