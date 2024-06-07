@@ -4,26 +4,27 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 public class conexionBD {
-    private String dbName;
-
-    public conexionBD(String dbName) {
-        this.dbName = dbName;
-    }
-
-    public Connection estableceConexion() {
-        try {
-            // Supongamos que estás usando MySQL
-            String url = "jdbc:mysql://localhost:3306/" + dbName;
-            String user = "root"; // Cambia esto según tus credenciales
-            String password = "root"; // Cambia esto según tus credenciales
-            Connection con = DriverManager.getConnection(url, user, password);
-            return con;
-        } catch (SQLException e) {
-            System.out.println("Error al conectar a la base de datos: " + e.toString());
-            return null;
-        }
-    }
+	Connection conectar = null;
+	String usuario = "root";
+	String contrasenia = "";
+	String bd = "clientesCrud";
+	String ip= "localhost";
+	String puerto = "3306";
+	String cadena = "jdbc:mysql://"+ip+":"+puerto+"/"+bd;
+	
+	public Connection estableceConexion(){
+		
+	try {
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	conectar = DriverManager.getConnection(cadena, usuario, contrasenia);
+	JOptionPane.showMessageDialog(null, "La conexión se ha realizado con éxito");
+	} catch (Exception e) {
+	JOptionPane.showMessageDialog(null, "Error al conectarse a la base de datos, erro: "+ e.toString());
+	}
+	return conectar;
 }
-
-
+	}
+	
