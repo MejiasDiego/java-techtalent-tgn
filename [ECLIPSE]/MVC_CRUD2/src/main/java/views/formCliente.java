@@ -29,13 +29,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JList;
-import javax.swing.JComboBox;
 
 public class formCliente extends JFrame {
 
@@ -182,6 +182,25 @@ public class formCliente extends JFrame {
 		sl_panel.putConstraint(SpringLayout.EAST, btnModificar, -16, SpringLayout.EAST, panel);
 		panel.add(btnModificar);
 		
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.addItem("clientes");
+		comboBox.addItem("peliculas");
+		contentPane.add(comboBox);
+		
+		// Agregar ActionListener al JComboBox
+        comboBox.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String seleccion = (String) comboBox.getSelectedItem(); // Obtiene el elemento seleccionado del JComboBox
+                if (seleccion.equals("peliculas")) { // Verifica si se seleccionó "clientes"
+                    dispose(); // Cierra la ventana actual
+                    // Crea una instancia de la vista formCliente y la hace visible
+                    formPeliculas peliculaForm = new formPeliculas();
+                    peliculaForm.setVisible(true);
+                }
+            }
+        });
+		
 		JButton btnEliminar = new JButton("Eliminar");
 		sl_panel.putConstraint(SpringLayout.NORTH, btnEliminar, 367, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.WEST, btnEliminar, 10, SpringLayout.WEST, panel);
@@ -234,38 +253,14 @@ public class formCliente extends JFrame {
 		sl_panel.putConstraint(SpringLayout.WEST, lblDireccin, 0, SpringLayout.WEST, lblNewLabel);
 		sl_panel.putConstraint(SpringLayout.EAST, lblDireccin, -6, SpringLayout.WEST, textField_1Apellido);
 		
-		textFieldId.setEditable(false);
-		
-		JComboBox comboBox = new JComboBox();
-		sl_contentPane.putConstraint(SpringLayout.EAST, comboBox, -428, SpringLayout.EAST, contentPane);
-		comboBox.addItem("clientes");
-		comboBox.addItem("peliculas");
-		contentPane.add(comboBox);
-		
-		
-		 // Agregar un ActionListener al JComboBox
-	    comboBox.addActionListener(new ActionListener() {
-	        public void actionPerformed(ActionEvent e) {
-	            // Obtener el elemento seleccionado del JComboBox
-	            String seleccion = (String) comboBox.getSelectedItem();
-	            // Verificar qué elemento fue seleccionado y llamar al método correspondiente
-	            if (seleccion.equals("clientes")) {
-	                cliente objetoCliente = new cliente();
-	                objetoCliente.MostrarCliente(table);
-	            } else if (seleccion.equals("peliculas")) {
-	                cliente objetoCliente = new cliente();
-	                objetoCliente.MostrarVideos(table);
-	            }
-	        }
-	    });
-		
+		textFieldId.setEditable(false); // Hacer el campo ID no editable
 		
 		JLabel lblSeleccionarTabla = new JLabel("SELECCIONAR TABLA");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, comboBox, -3, SpringLayout.NORTH, lblSeleccionarTabla);
 		sl_contentPane.putConstraint(SpringLayout.WEST, comboBox, 6, SpringLayout.EAST, lblSeleccionarTabla);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblSeleccionarTabla, 168, SpringLayout.EAST, panel);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblSeleccionarTabla, 23, SpringLayout.SOUTH, panel_1);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblSeleccionarTabla, 28, SpringLayout.EAST, panel);
+		sl_contentPane.putConstraint(SpringLayout.EAST, lblSeleccionarTabla, 172, SpringLayout.EAST, panel);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, lblSeleccionarTabla, 36, SpringLayout.SOUTH, panel_1);
+		sl_contentPane.putConstraint(SpringLayout.WEST, lblSeleccionarTabla, 31, SpringLayout.EAST, panel);
 		contentPane.add(lblSeleccionarTabla);
 
 		// Ajustar la asignación de campos en el método actionPerformed del botón "Eliminar"
@@ -308,5 +303,9 @@ public class formCliente extends JFrame {
 
 
 	}
+	
+	
+	
 }
+
 
