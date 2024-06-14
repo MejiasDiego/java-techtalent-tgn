@@ -1,0 +1,99 @@
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 10;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #f9f9f9;
+}
+pre {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.contenedor {
+  width: 1100px;
+  margin: 20 auto;
+  padding: 20px;
+  border: 8px solid #dddddd;
+  background-color: #f9f9f9;
+}
+
+.contenedorCuerpo {
+  width: 97.5%;
+  padding-left: 3%;
+  border: 2px solid #dddddd;
+  background: linear-gradient(to bottom, #e7e7e7, #ffffff, #e7e7e7);
+}
+h1 {
+  letter-spacing: 10px;
+  color: rgb(98, 167, 24);
+  text-align: center;
+}
+h1 span {
+  color: rgb(187, 168, 29);
+}
+h3 {
+  color: rgb(187, 104, 21);
+}
+h2 {
+  color: rgb(136, 199, 41);
+  border-bottom: 1px solid rgb(136, 199, 41);
+}
+.cabecera {
+  color: rgb(0, 0, 0);
+  margin-top: -1.5%;
+}
+nav {
+  flex: 1;
+  margin-right: 20px;
+}
+nav ul {
+  list-style-type: none;
+  padding: 10px;
+}
+nav ul li {
+  margin-bottom: 10px;
+}
+nav ul li a {
+  display: block;
+  background: linear-gradient(to bottom, #ffffff, #87c925);
+  padding: 6px;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+}
+nav ul li a:hover {
+  background-color: #6d9f23;
+}
+nav ul li:first-child a {
+  background: linear-gradient(to bottom, #ffffff, #f0a063);
+}
+nav ul li:first-child a:hover {
+  background-color: #bd7843;
+}
+
+.main-content {
+  flex: 6;
+  margin-right: 20px;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.pie {
+  text-align: center; /* Alineación del texto al centro */
+  margin-bottom: -20px;
+}
+
+.pie p {
+  font-style: italic;
+  font-size: 14px; /* Tamaño de fuente */
+  color: #666; /* Color de texto */
+  opacity: 0.3; /* Opacidad del texto */
+}
+.pie span p {
+  text-decoration: underline;
+}
