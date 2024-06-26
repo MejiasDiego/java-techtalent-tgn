@@ -1,0 +1,84 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+}
+
+thead {
+  background-color: #034323;
+  color: white;
+}
+
+thead th {
+  border: 3px solid #00c8ff;
+  padding: 2px;
+  text-align: center;
+}
+
+tbody tr {
+  background-color: #ffffff;
+}
+
+tr:nth-child(1) {
+  background-color: #ffffff;
+}
+
+tr:nth-child(2) {
+  background-color: #f3f656;
+}
+
+tbody td.celda5 {
+  background-color: #ffffff;
+}
+
+tr:nth-child(3) {
+  background-color: #d820bf;
+}
+
+tbody td {
+  border: 3px solid #a6a6a6;
+  text-align: left;
+}
+
+.border2 {
+  border: 4px solid #dadada57;
+}
+
+.border3 {
+  border: 2px solid #00c8ff;
+}
+
+.border4 {
+  border: 4px solid #ffffff;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+  vertical-align: bottom;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.redFont {
+  color: red;
+}
+.tabla {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+  background-image: url(../deportes/penguin.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google</title>
+    <link rel="stylesheet" href="google.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="left">
+        <a href="https://about.google/">Sobre Google</a>
+        <a href="https://store.google.com/">Tienda</a>
+      </div>
+      <div class="right">
+        <a href="https://mail.google.com/">Gmail</a>
+        <a href="https://www.google.com/imghp">Imágenes</a>
+      </div>
+    </header>
+    <main class="container">
+      <div class="logo">
+        <img
+          src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+          alt="Google Logo"
+        />
+      </div>
+      <form
+        class="search-form"
+        action="https://www.google.com/search"
+        method="GET"
+      >
+        <input
+          type="text"
+          class="search-input"
+          name="q"
+          title="Buscar"
+          aria-label="Buscar"
+        />
+        <div class="buttons">
+          <input type="submit" class="btn" value="Buscar con Google" />
+          <input
+            type="button"
+            class="btn"
+            value="Voy a tener suerte"
+            onclick="luckySearch()"
+          />
+        </div>
+      </form>
+      <div class="languages">
+        <span id="offered-in">Ofrecido por Google en:</span>
+        <a href="#" onclick="changeLanguage('es')">español</a>
+        <a href="#" onclick="changeLanguage('ca')">català</a>
+        <a href="#" onclick="changeLanguage('gl')">galego</a>
+        <a href="#" onclick="changeLanguage('eu')">euskara</a>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer-left">
+        <a href="#">Publicidad</a>
+        <a href="#">Empresa</a>
+        <a href="#">Cómo funciona la Búsqueda</a>
+      </div>
+      <div class="footer-right">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+        <a href="#">Configuración</a>
+      </div>
+    </footer>
+    <script src="scripts.js"></script>
+  </body>
+</html>

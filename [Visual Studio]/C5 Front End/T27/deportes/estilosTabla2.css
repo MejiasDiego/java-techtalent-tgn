@@ -19,19 +19,20 @@ thead th {
 }
 
 tbody tr {
-  background-color: #ccffcc;
+  background-color: #ffffff;
+}
+tr:nth-child(1) {
+  background-color: #4cf389;
+}
+tbody td.celda5 {
+  background-color: #ffffff;
 }
 
-tbody tr:nth-child(2) {
-  background-color: #ccffcc;
+tr:nth-child(3) {
+  background-color: #d820bf;
 }
-
-tbody tr:nth-child(3) {
-  background-color: #97da97;
-}
-
 tbody td {
-  border: 3px solid #0bccea;
+  border: 3px solid #a6a6a6;
   text-align: left;
 }
 .border2 {
@@ -45,4 +46,14 @@ tbody td {
 }
 .center {
   text-align: center;
+}
+.right {
+  text-align: right;
+  vertical-align: bottom;
+}
+.bold {
+  font-weight: bold;
+}
+.redFont {
+  color: red;
 }

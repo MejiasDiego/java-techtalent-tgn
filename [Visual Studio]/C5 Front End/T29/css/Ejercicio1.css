@@ -1,0 +1,16 @@
+body {
+  background-image: url(../img/fondo1.jpg);
+  width: 450px;
+}
+
+button {
+  border: 1px solid white;
+}
+
+.bg-gray {
+  background-color: #d8d8d8;
+}
+
+.text-gray {
+  color: #d8d8d8;
+}

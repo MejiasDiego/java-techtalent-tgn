@@ -1,0 +1,28 @@
+body {
+  background-color: #f7f0e2;
+  color: #880640;
+}
+.orange {
+  background-color: #fcc085;
+}
+
+.yellow {
+  background-color: #ffff99;
+}
+
+table {
+  border: 3.5px outset #b3b2b2;
+  width: 50%;
+  background-color: #ffffcc;
+  text-align: center;
+}
+
+th {
+  background-color: #669966;
+  color: #6a1631;
+}
+
+th,
+td {
+  border: 2px outset #b3b3b2;
+}

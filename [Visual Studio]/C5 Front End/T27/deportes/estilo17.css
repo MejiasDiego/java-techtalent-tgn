@@ -1,0 +1,101 @@
+body {
+  background-image: url(../RecursosT27/ac.jpg);
+}
+#container {
+  display: block;
+  width: 100%;
+}
+
+#mantel,
+#retrato,
+#degradado {
+  display: flex;
+  flex-wrap: wrap;
+  width: 150%;
+  margin: 1%;
+}
+
+#mantel > div,
+#retrato > div,
+#degradado > div {
+  width: 270px;
+  height: 270px;
+  text-align: center;
+  margin: 1%;
+  border: 1px solid;
+  box-sizing: border-box;
+}
+
+div > p {
+  text-align: center;
+}
+
+.div-padre {
+  display: flex;
+}
+
+.foto-mantel {
+  background-image: url(../RecursosT27/mantel.jpg);
+}
+.foto-retrato {
+  background-image: url(../RecursosT27/retrato.jpg);
+  background-repeat: no-repeat;
+}
+.foto-retrato-largo {
+  background-image: url(../RecursosT27/retratoLargo.jpg);
+  background-repeat: no-repeat;
+}
+.full {
+  background-size: cover;
+}
+.div-hijo-marco {
+  margin: auto;
+  width: 75%;
+  height: 75%;
+}
+.div-hijo-retrato {
+  margin: auto;
+  width: 75%;
+  height: 75%;
+}
+.full {
+  background-size: cover;
+}
+.fondo-blanco {
+  background-color: white;
+  z-index: -1;
+}
+.div-hijo-horizontal {
+  width: 100%;
+  margin-top: 25%;
+  margin-bottom: 25%;
+  background-position-y: 50%;
+}
+.div-hijo-vertical {
+  height: 100%;
+  width: 50%;
+  margin-left: 25%;
+  background-position-x: 50%;
+}
+#div1 {
+  background-image: linear-gradient(to right, #d2fb5c, #5a6a45);
+}
+
+#div2 {
+  background-image: linear-gradient(
+    to top,
+    #d6764d,
+    #7a2705,
+    #b45c38,
+    #df9576,
+    #e8b5a0
+  );
+}
+
+#div3 {
+  background-image: linear-gradient(to top, #367a26, #e8eed1);
+}
+
+#div4 {
+  background-image: linear-gradient(to top, #317a21, transparent);
+}

@@ -1,0 +1,61 @@
+#container {
+  display: block;
+}
+
+#panel {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #a4d3ff;
+  border: 2px solid red;
+  margin: 3%;
+  width: 35%;
+  height: 35vh;
+  z-index: 0;
+  overflow: hidden;
+}
+
+#mini-panel {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #a4d3ff;
+  border: 2px solid blue;
+  margin: 1%;
+  width: 20%;
+  height: 15vh;
+  z-index: 0;
+  overflow: hidden;
+}
+
+#nubes {
+  position: absolute;
+  height: 73px;
+  width: 100%;
+  background-image: url(../RecursosT27/mario3.png);
+  z-index: 1;
+}
+
+#bottom {
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+}
+
+#level {
+  height: 99px;
+  background-image: url(../RecursosT27/mario2.png);
+  background-repeat: no-repeat;
+}
+
+#suelo {
+  bottom: 0;
+  height: 14px;
+  background-image: url(../RecursosT27/mario1.png);
+}
+
+p {
+  margin-left: 5%;
+  z-index: 3;
+}
