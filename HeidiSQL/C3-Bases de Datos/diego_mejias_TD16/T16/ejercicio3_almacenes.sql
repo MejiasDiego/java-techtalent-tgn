@@ -148,4 +148,4 @@ WHERE capacidad <
 	FROM cajas c
 	WHERE c.almacen = a.codigo
 	GROUP BY c.almacen
-)-
+)-biblio

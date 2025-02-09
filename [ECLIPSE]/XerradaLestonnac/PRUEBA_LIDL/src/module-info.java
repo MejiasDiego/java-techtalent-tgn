@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * 
- */
-module PRUEBA_LIDL {
-}
